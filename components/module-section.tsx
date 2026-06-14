@@ -1,6 +1,7 @@
 "use client"
 
 import { Check, Heart, DollarSign, Package, BarChart3, ShoppingCart, Calendar } from "lucide-react"
+import { motion } from "motion/react"
 import { 
   LoyaltyVisual, 
   FinanceVisual, 
@@ -9,6 +10,8 @@ import {
   POSVisual, 
   BookingVisual 
 } from "@/components/module-visuals"
+
+const easeOut = [0.22, 1, 0.36, 1] as const
 
 const iconMap = {
   heart: Heart,
@@ -64,16 +67,22 @@ export function ModuleSection({
   return (
     <section 
       id={id} 
-      className="py-24 px-6 lg:px-12 border-t border-[#1A1A1A]"
+      className="py-24 px-6 lg:px-12 border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ${reversed ? 'lg:flex-row-reverse' : ''}`}>
           {/* Content */}
-          <div className={reversed ? 'lg:order-2' : ''}>
+          <motion.div
+            className={reversed ? 'lg:order-2' : ''}
+            initial={{ opacity: 0, x: reversed ? 40 : -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: easeOut }}
+          >
             <div className="flex items-center gap-4 mb-6">
               <span className="text-[#0A5A8C] text-sm font-mono">{number}</span>
               <div className="h-px bg-[#2A2A2A] flex-1 max-w-12" />
-              <div className="w-10 h-10 bg-[#0A5A8C]/10 border border-[#0A5A8C]/30 flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#0A5A8C]/10 border border-[#0A5A8C]/30 rounded-md flex items-center justify-center transition-all duration-300 hover:bg-[#0A5A8C]/20 hover:shadow-[0_0_18px_rgba(10,90,140,0.4)]">
                 <Icon size={20} className="text-[#0A5A8C]" />
               </div>
             </div>
@@ -90,21 +99,34 @@ export function ModuleSection({
             
             <div className="space-y-4">
               {features.map((feature, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="w-5 h-5 bg-[#0A5A8C]/10 border border-[#0A5A8C]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check size={12} className="text-[#0A5A8C]" />
+                <motion.div
+                  key={i}
+                  className="flex gap-4 group rounded-lg -mx-3 px-3 py-2 transition-colors duration-300 hover:bg-white/[0.03]"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.5, ease: easeOut, delay: 0.15 + i * 0.1 }}
+                >
+                  <div className="w-5 h-5 bg-[#0A5A8C]/10 border border-[#0A5A8C]/30 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-all duration-300 group-hover:bg-[#0A5A8C] group-hover:scale-110">
+                    <Check size={12} className="text-[#0A5A8C] transition-colors duration-300 group-hover:text-white" />
                   </div>
                   <div>
                     <h4 className="text-white text-sm font-medium mb-1">{feature.title}</h4>
                     <p className="text-[#6B7280] text-sm">{feature.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
           
           {/* Visual */}
-          <div className={reversed ? 'lg:order-1' : ''}>
+          <motion.div
+            className={reversed ? 'lg:order-1' : ''}
+            initial={{ opacity: 0, x: reversed ? -40 : 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: easeOut, delay: 0.1 }}
+          >
             {visualType === 'loyalty' ? (
               <>
                 {/* Estilos inyectados para la animación del humito */}
@@ -126,7 +148,7 @@ export function ModuleSection({
                 <div className="flex flex-col gap-8 lg:-ml-12 relative z-10 w-full max-w-[450px]">
                   
                   {/* PANEL 1: Tarjeta de Fidelización (Tacitas) */}
-                  <div className="border border-[#2A2A2A] bg-[#121212] p-6 rounded-lg shadow-lg flex flex-col gap-5">
+                  <div className="border border-white/10 bg-[#121212]/80 backdrop-blur-sm p-6 rounded-lg shadow-lg flex flex-col gap-5 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_8px_40px_-8px_rgba(10,90,140,0.35)]">
                     {/* Cabecera (Se sacó "En vivo") */}
                     <div className="flex justify-between items-center pb-1">
                       <h4 className="text-xs font-mono text-white uppercase tracking-wider">Tarjeta de Fidelización</h4>
@@ -165,7 +187,7 @@ export function ModuleSection({
                   </div>
 
                   {/* PANEL 2: Sistema de Puntos (Lista y Premios) */}
-                  <div className="border border-[#2A2A2A] bg-[#121212] p-6 rounded-lg shadow-lg flex flex-col gap-6">
+                  <div className="border border-white/10 bg-[#121212]/80 backdrop-blur-sm p-6 rounded-lg shadow-lg flex flex-col gap-6 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_8px_40px_-8px_rgba(10,90,140,0.35)]">
                     {/* Cabecera (Cambió texto, se sacó "En vivo") */}
                     <div className="flex justify-between items-center pb-1">
                       <h4 className="text-xs font-mono text-white uppercase tracking-wider">Sistema de Puntos</h4>
@@ -220,7 +242,7 @@ export function ModuleSection({
             ) : (
               <Visual />
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

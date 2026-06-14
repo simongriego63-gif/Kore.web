@@ -1,11 +1,12 @@
 "use client"
 
 import { Heart, Star, Bell, TrendingUp, DollarSign, CreditCard, Receipt, Package, AlertTriangle, BarChart3, PieChart, Activity, ShoppingCart, Scan, Calendar, Clock, Users } from "lucide-react"
+import { motion } from "motion/react"
 
 // Loyalty Visual - Points and rewards dashboard
 export function LoyaltyVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Panel de Fidelización</span>
         <div className="flex items-center gap-2">
@@ -59,7 +60,7 @@ export function LoyaltyVisual() {
 // Finance Visual - Cash flow dashboard
 export function FinanceVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Flujo de Caja Diario</span>
         <span className="text-white text-xs">Hoy, 4 Mayo</span>
@@ -87,9 +88,12 @@ export function FinanceVisual() {
         <div className="flex items-end justify-between h-24 gap-2">
           {[65, 45, 80, 55, 90, 70, 85].map((height, i) => (
             <div key={i} className="flex-1 flex flex-col justify-end">
-              <div 
-                className="bg-[#0A5A8C] w-full transition-all"
-                style={{ height: `${height}%` }}
+              <motion.div
+                className="bg-[#0A5A8C] w-full rounded-sm"
+                initial={{ height: 0 }}
+                whileInView={{ height: `${height}%` }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
               />
             </div>
           ))}
@@ -111,7 +115,7 @@ export function FinanceVisual() {
 // Inventory Visual - Stock management
 export function InventoryVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Control de Inventario</span>
         <div className="flex items-center gap-2">
@@ -159,7 +163,7 @@ export function InventoryVisual() {
 // Analytics Visual - Metrics dashboard
 export function AnalyticsVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Dashboard Analítico</span>
         <span className="text-white text-xs">Últimos 30 días</span>
@@ -228,7 +232,7 @@ export function AnalyticsVisual() {
 // POS Visual - Sales interface
 export function POSVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Punto de Venta</span>
         <div className="flex items-center gap-2">
@@ -285,7 +289,7 @@ export function POSVisual() {
 // Booking Visual - Calendar and appointments
 export function BookingVisual() {
   return (
-    <div className="bg-[#121212] border border-[#1A1A1A] p-6 lg:p-8">
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
       <div className="flex items-center justify-between mb-6">
         <span className="text-[#6B7280] text-xs uppercase tracking-wider">Agenda del Día</span>
         <span className="text-white text-xs">4 Mayo, 2026</span>
