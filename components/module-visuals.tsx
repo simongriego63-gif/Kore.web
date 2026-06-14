@@ -1,6 +1,6 @@
 "use client"
 
-import { Heart, Star, Bell, TrendingUp, DollarSign, CreditCard, Receipt, Package, AlertTriangle, BarChart3, PieChart, Activity, ShoppingCart, Scan, Calendar, Clock, Users } from "lucide-react"
+import { Heart, Star, Bell, TrendingUp, DollarSign, CreditCard, Receipt, Package, AlertTriangle, BarChart3, PieChart, Activity, ShoppingCart, Scan, Calendar, Clock, Users, Globe, MapPin, Instagram, MessageCircle, ExternalLink, ShoppingBag } from "lucide-react"
 import { motion } from "motion/react"
 
 // Loyalty Visual - Points and rewards dashboard
@@ -342,6 +342,121 @@ export function BookingVisual() {
           <Clock size={14} className="text-[#0A5A8C]" />
           <span className="text-[#6B7280] text-xs">4h 15min ocupadas</span>
         </div>
+      </div>
+    </div>
+  )
+}
+
+// Web Visual - Mini website preview inside a browser frame
+export function WebVisual() {
+  return (
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-4 lg:p-5 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-1.5">
+          <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
+          <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
+          <span className="w-3 h-3 rounded-full bg-[#28C840]" />
+        </div>
+        <div className="flex-1 flex items-center gap-2 bg-[#0A0A0A] border border-[#2A2A2A] rounded-md px-3 py-1.5">
+          <Globe size={12} className="text-[#0A5A8C]" />
+          <span className="text-[#6B7280] text-xs font-mono">www.tunegocio.com</span>
+        </div>
+      </div>
+
+      {/* Website canvas */}
+      <div className="bg-[#0A0A0A] border border-[#2A2A2A] rounded-md overflow-hidden">
+        {/* Site nav */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-[#1A1A1A]">
+          <span className="text-white text-sm font-bold tracking-tight">Aurora<span className="text-[#0A5A8C]">.</span></span>
+          <div className="hidden sm:flex items-center gap-4">
+            <span className="text-[#9CA3AF] text-[11px]">Inicio</span>
+            <span className="text-[#9CA3AF] text-[11px]">Menú</span>
+            <span className="text-[#9CA3AF] text-[11px]">Nosotros</span>
+            <span className="text-white text-[11px] bg-[#0A5A8C] px-3 py-1 rounded-full">Reservar</span>
+          </div>
+        </div>
+
+        {/* Hero */}
+        <div className="relative px-5 py-8 text-center bg-[radial-gradient(ellipse_at_top,_rgba(10,90,140,0.18),_transparent_70%)]">
+          <span className="text-[#0A5A8C] text-[10px] font-mono uppercase tracking-[0.2em]">Café de especialidad</span>
+          <h3 className="text-white text-xl font-bold mt-2 leading-tight">Sabor que enamora<br />en cada taza</h3>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <span className="text-white text-[11px] bg-[#0A5A8C] px-4 py-1.5 rounded-full">Ver carta</span>
+            <span className="text-[#9CA3AF] text-[11px] border border-[#2A2A2A] px-4 py-1.5 rounded-full">Cómo llegar</span>
+          </div>
+        </div>
+
+        {/* Catalog cards */}
+        <div className="grid grid-cols-3 gap-3 px-5 pb-5">
+          {[
+            { name: "Espresso", price: "$3.50" },
+            { name: "Latte", price: "$4.80" },
+            { name: "Cold Brew", price: "$5.20" },
+          ].map((product, i) => (
+            <div key={i} className="bg-[#121212] border border-[#1A1A1A] rounded-md overflow-hidden">
+              <div className="h-12 bg-[linear-gradient(135deg,_rgba(10,90,140,0.35),_rgba(13,148,136,0.2))] flex items-center justify-center">
+                <ShoppingBag size={16} className="text-white/70" />
+              </div>
+              <div className="p-2">
+                <div className="text-white text-[11px] font-medium truncate">{product.name}</div>
+                <div className="text-[#0A5A8C] text-[11px] font-mono">{product.price}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// Link Visual - Linktree-style bio page
+export function LinkVisual() {
+  const links = [
+    { label: "Reservar una mesa", icon: Calendar },
+    { label: "Ver nuestro menú", icon: ShoppingBag },
+    { label: "Cómo llegar", icon: MapPin },
+    { label: "Escribinos por WhatsApp", icon: MessageCircle },
+    { label: "Seguinos en Instagram", icon: Instagram },
+  ]
+
+  return (
+    <div className="bg-[#121212]/80 backdrop-blur-sm border border-white/10 rounded-lg p-6 lg:p-8 transition-all duration-300 hover:border-[#0A5A8C]/40 hover:shadow-[0_12px_50px_-12px_rgba(10,90,140,0.4)]">
+      <div className="flex items-center justify-between mb-6">
+        <span className="text-[#6B7280] text-xs uppercase tracking-wider">Bio Link</span>
+        <div className="flex items-center gap-2">
+          <Globe size={14} className="text-[#0A5A8C]" />
+          <span className="text-[#0A5A8C] text-xs font-mono">/aurora.cafe</span>
+        </div>
+      </div>
+
+      {/* Profile */}
+      <div className="flex flex-col items-center text-center mb-6">
+        <div className="w-16 h-16 rounded-full bg-[linear-gradient(135deg,_rgba(10,90,140,0.6),_rgba(13,148,136,0.4))] border border-[#0A5A8C]/40 flex items-center justify-center mb-3">
+          <span className="text-white text-lg font-bold">A</span>
+        </div>
+        <span className="text-white text-sm font-bold">@aurora.cafe</span>
+        <span className="text-[#6B7280] text-xs mt-1">Café de especialidad · Palermo, BA</span>
+      </div>
+
+      {/* Link buttons */}
+      <div className="space-y-3">
+        {links.map((link, i) => (
+          <motion.div
+            key={i}
+            className="group flex items-center justify-between bg-[#0A0A0A] border border-[#2A2A2A] rounded-full px-4 py-3 cursor-pointer transition-all duration-300 hover:border-[#0A5A8C]/50 hover:bg-[#0A5A8C]/10"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
+          >
+            <div className="flex items-center gap-3">
+              <link.icon size={16} className="text-[#0A5A8C]" />
+              <span className="text-white text-sm">{link.label}</span>
+            </div>
+            <ExternalLink size={14} className="text-[#6B7280] transition-all duration-300 group-hover:text-[#0A5A8C] group-hover:translate-x-0.5" />
+          </motion.div>
+        ))}
       </div>
     </div>
   )

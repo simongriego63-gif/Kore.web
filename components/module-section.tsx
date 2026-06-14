@@ -8,7 +8,9 @@ import {
   InventoryVisual, 
   AnalyticsVisual, 
   POSVisual, 
-  BookingVisual 
+  BookingVisual,
+  WebVisual,
+  LinkVisual
 } from "@/components/module-visuals"
 
 const easeOut = [0.22, 1, 0.36, 1] as const
