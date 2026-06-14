@@ -6,10 +6,12 @@ import { ModulesOverview } from "@/components/modules-overview"
 import { ModuleSection } from "@/components/module-section"
 import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
+import { AuroraBackground } from "@/components/aurora-background"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0A0A0A]">
+    <main className="relative min-h-screen">
+      <AuroraBackground />
       <Navigation /> 
       <HeroSection />
       <ModulesOverview />
